@@ -7,4 +7,9 @@
     <color name="cream">#FFF8F6EE</color>
     <color name="text_dark">#FF0F2E1C</color>
     <color name="text_gray">#FF6B6B6B</color>
+
+    <color name="status_pending">#FFF59E0B</color>
+    <color name="status_accepted">#FF3B82F6</color>
+    <color name="status_picked_up">#FF8B5CF6</color>
+    <color name="status_delivered">#FF22A35A</color>
 </resources>
