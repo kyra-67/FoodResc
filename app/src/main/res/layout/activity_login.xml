@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_dark"
+    android:background="@drawable/bg_login"
     android:fillViewport="true"
     tools:context=".LoginActivity">
 
@@ -198,20 +198,7 @@
                     android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Forgot Password -->
-                <TextView
-                    android:id="@+id/tvForgotPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="8dp"
-                    android:padding="4dp"
-                    android:text="Forgot Password?"
-                    android:textColor="@color/green_dark"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
 
-                <!-- Bahagian 5: butang Log In & Create Account akan diletak di sini -->
                 <!-- Butang Log In -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLogin"
@@ -227,15 +214,6 @@
                     app:icon="@drawable/ic_arrow_forward"
                     app:iconGravity="textEnd"
                     app:iconTint="@color/text_dark" />
-
-                <!-- Loading (tersorok) -->
-                <ProgressBar
-                    android:id="@+id/progressLogin"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:visibility="gone" />
 
                 <!-- Create Account -->
                 <LinearLayout

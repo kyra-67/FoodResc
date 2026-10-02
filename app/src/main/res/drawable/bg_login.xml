@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Lapisan 1: gradient hijau (atas cerah, bawah gelap) -->
+    <item>
+        <shape>
+            <gradient
+                android:angle="270"
+                android:startColor="#FF2A6B3F"
+                android:endColor="@color/green_dark" />
+        </shape>
+    </item>
+
+    <!-- Lapisan 2: bulatan besar, bucu kanan atas -->
+    <item
+        android:width="260dp"
+        android:height="260dp"
+        android:gravity="top|end"
+        android:top="-80dp"
+        android:right="-90dp">
+        <shape android:shape="oval">
+            <solid android:color="#1AFFFFFF" />
+        </shape>
+    </item>
+
+    <!-- Lapisan 3: bulatan tepi kiri -->
+    <item
+        android:width="200dp"
+        android:height="200dp"
+        android:gravity="center_vertical|start"
+        android:left="-110dp">
+        <shape android:shape="oval">
+            <solid android:color="#14FFFFFF" />
+        </shape>
+    </item>
+
+    <!-- Lapisan 4: bulatan lime, bucu kanan bawah -->
+    <item
+        android:width="240dp"
+        android:height="240dp"
+        android:gravity="bottom|end"
+        android:right="-100dp"
+        android:bottom="-80dp">
+        <shape android:shape="oval">
+            <solid android:color="#2297D93B" />
+        </shape>
+    </item>
+
+</layer-list>
