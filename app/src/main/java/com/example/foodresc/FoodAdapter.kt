@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class FoodAdapter(
     private var foods: List<Food>,
+    private val showStatus: Boolean = false,
     private val onClick: (Food) -> Unit
 ) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
@@ -35,7 +36,11 @@ class FoodAdapter(
         holder.tvFoodName.text = food.name
         holder.tvFoodInfo.text = "${food.category} • ${food.quantity}"
         holder.tvFoodArea.text = "📍 ${food.area}"
-        holder.tvFoodExpiry.text = "Collect by ${food.expiry}"
+        holder.tvFoodExpiry.text = if (showStatus) {
+            "Status: ${food.status.replaceFirstChar { it.uppercase() }}"
+        } else {
+            "Collect by ${food.expiry}"
+        }
         holder.itemView.setOnClickListener { onClick(food) }
     }
 

@@ -50,6 +50,7 @@ class ReservationAdapter(
             "accepted" -> "Accepted" to R.color.status_accepted
             "picked_up" -> "Picked Up" to R.color.status_picked_up
             "delivered" -> "Delivered" to R.color.status_delivered
+            "cancelled" -> "Cancelled" to R.color.text_gray
             else -> reservation.status to R.color.text_gray
         }
         holder.tvStatus.text = label

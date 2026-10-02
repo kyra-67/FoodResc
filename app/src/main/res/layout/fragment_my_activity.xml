@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cream">
+    android:background="@color/cream"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Activity"
+        android:text="My Activity"
         android:textColor="@color/text_dark"
-        android:textSize="24sp" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:checkedButton="@id/btnTabReservations"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabReservations"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Reservations"
+            android:textColor="@color/text_dark"
+            android:textSize="13sp"
+            app:backgroundTint="@color/role_button_bg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabDonations"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Donations"
+            android:textColor="@color/text_dark"
+            android:textSize="13sp"
+            app:backgroundTint="@color/role_button_bg" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/text_gray"
+        android:visibility="gone" />
+
+</LinearLayout>
