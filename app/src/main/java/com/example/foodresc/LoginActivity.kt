@@ -104,7 +104,9 @@ class LoginActivity : AppCompatActivity() {
 
         DummyData.currentUser = user
         Toast.makeText(this, "Welcome back, ${user.name}!", Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, MainActivity::class.java))
+        val target = if (user.role == "volunteer") VolunteerMainActivity::class.java
+        else MainActivity::class.java
+        startActivity(Intent(this, target))
         finish()
     }
 }
