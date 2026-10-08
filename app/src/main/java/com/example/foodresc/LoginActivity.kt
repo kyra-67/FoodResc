@@ -6,6 +6,7 @@ import android.util.Patterns
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -24,6 +25,18 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etPassword: TextInputEditText
     private lateinit var btnLogin: MaterialButton
     private lateinit var tvCreateAccount: TextView
+
+    // Terima email & role dari RegisterActivity
+    private val registerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            etEmail.setText(result.data?.getStringExtra("EMAIL"))
+            etPassword.text = null
+            val role = result.data?.getStringExtra("ROLE")
+            toggleRole.check(if (role == "volunteer") R.id.btnRoleVolunteer else R.id.btnRoleCommunity)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +60,9 @@ class LoginActivity : AppCompatActivity() {
             if (validateInput()) {
                 loginUser()
             }
+        }
+        tvCreateAccount.setOnClickListener {
+            registerLauncher.launch(Intent(this, RegisterActivity::class.java))
         }
     }
 

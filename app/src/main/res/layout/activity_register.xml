@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="FoodResc"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="Share Food, Share Hope."
+            android:textColor="@color/green_lime"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/cream"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Create Account"
+                    android:textColor="@color/text_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="Register as"
+                    android:textColor="@color/text_gray"
+                    android:textSize="15sp" />
+
+                <!-- Pilih role -->
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:checkedButton="@id/btnRoleCommunity"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRoleCommunity"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="Community User"
+                        android:textColor="@color/text_dark"
+                        android:textSize="12sp"
+                        app:backgroundTint="@color/role_button_bg"
+                        app:icon="@drawable/ic_community"
+                        app:iconPadding="4dp"
+                        app:iconTint="@color/text_dark" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRoleVolunteer"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="Volunteer Collector"
+                        android:textColor="@color/text_dark"
+                        android:textSize="12sp"
+                        app:backgroundTint="@color/role_button_bg"
+                        app:icon="@drawable/ic_volunteer"
+                        app:iconPadding="4dp"
+                        app:iconTint="@color/text_dark" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <!-- Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Full name"
+                    app:startIconDrawable="@drawable/ic_person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Email address"
+                    app:startIconDrawable="@drawable/ic_mail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Phone number (e.g. 0123456789)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Password (min. 6 characters)"
+                    app:endIconMode="password_toggle"
+                    app:errorIconDrawable="@null"
+                    app:startIconDrawable="@drawable/ic_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Confirm password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilConfirmPassword"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Confirm password"
+                    app:endIconMode="password_toggle"
+                    app:errorIconDrawable="@null"
+                    app:startIconDrawable="@drawable/ic_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Create Account"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/green_lime"
+                    app:cornerRadius="16dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Already have an account? "
+                        android:textColor="@color/text_gray"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log In"
+                        android:textColor="@color/green_dark"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
