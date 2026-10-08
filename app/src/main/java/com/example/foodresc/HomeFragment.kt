@@ -3,12 +3,14 @@ package com.example.foodresc
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -44,6 +46,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         )
         for ((id, category) in categoryViews) {
             view.findViewById<View>(id).setOnClickListener { main?.openBrowse(category) }
+        }
+
+        view.findViewById<ImageView>(R.id.ivNotifications).setOnClickListener {
+            showNotifications()
         }
 
         sectionActive = view.findViewById(R.id.sectionActive)
@@ -94,5 +100,43 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         foodAdapter.updateData(available)
         rvAvailable.visibility = if (available.isEmpty()) View.GONE else View.VISIBLE
         tvNoFood.visibility = if (available.isEmpty()) View.VISIBLE else View.GONE
+    }
+
+    // Jana notifikasi daripada status tempahan & derma user
+    private fun showNotifications() {
+        val myEmail = DummyData.currentUser?.email
+        val messages = mutableListOf<String>()
+
+        for (r in DummyData.reservations.reversed()) {
+            val food = DummyData.foods.find { it.id == r.foodId } ?: continue
+            val volunteer = DummyData.users.find { it.email == r.volunteerEmail }?.name ?: "a volunteer"
+            val recipient = DummyData.users.find { it.email == r.recipientEmail }?.name ?: "someone"
+
+            // Saya sebagai recipient
+            if (r.recipientEmail == myEmail) {
+                when (r.status) {
+                    "pending" -> messages.add("⏳ ${food.name}: waiting for a volunteer")
+                    "accepted" -> messages.add("🚚 ${food.name} was accepted by $volunteer")
+                    "picked_up" -> messages.add("📦 ${food.name} has been picked up by $volunteer")
+                    "delivered" -> messages.add("✅ ${food.name} has been delivered")
+                }
+            }
+
+            // Saya sebagai donor
+            if (food.donorEmail == myEmail && r.status != "cancelled") {
+                messages.add("🎁 Your ${food.name} was reserved by $recipient")
+            }
+        }
+
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Notifications")
+            .setPositiveButton("Close", null)
+
+        if (messages.isEmpty()) {
+            dialog.setMessage("No notifications yet.")
+        } else {
+            dialog.setItems(messages.toTypedArray(), null)
+        }
+        dialog.show()
     }
 }

@@ -5,12 +5,15 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.text.SimpleDateFormat
@@ -78,6 +81,10 @@ class DonateFoodActivity : AppCompatActivity() {
         etExpiryDate.setOnClickListener { showDatePicker() }
         etExpiryTime.setOnClickListener { showTimePicker() }
         findViewById<MaterialButton>(R.id.btnSubmit).setOnClickListener { submitDonation() }
+
+        // Butang Back di skrin + butang Back telefon
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener { confirmLeave() }
+        onBackPressedDispatcher.addCallback(this) { confirmLeave() }
     }
 
     private fun showDatePicker() {
@@ -122,6 +129,7 @@ class DonateFoodActivity : AppCompatActivity() {
             tilFoodName.error = "Please enter the food name"
             isValid = false
         }
+
         if (category.isEmpty()) {
             tilCategory.error = "Please choose a category"
             isValid = false
@@ -172,5 +180,27 @@ class DonateFoodActivity : AppCompatActivity() {
     // Gambar ikut kategori (tukar ke gambar sebenar masa polish)
     private fun imageForCategory(category: String): Int {
         return R.drawable.logo_foodresc
+    }
+
+    private fun confirmLeave() {
+        val hasInput = !etFoodName.text.isNullOrEmpty() ||
+                !etQuantity.text.isNullOrEmpty() ||
+                !etAddress.text.isNullOrEmpty() ||
+                actvCategory.text.isNotEmpty() ||
+                actvArea.text.isNotEmpty() ||
+                dateSelected || timeSelected
+
+        // Borang kosong: terus keluar
+        if (!hasInput) {
+            finish()
+            return
+        }
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Discard donation?")
+            .setMessage("The information you entered will be lost.")
+            .setNegativeButton("Keep Editing", null)
+            .setPositiveButton("Discard") { _, _ -> finish() }
+            .show()
     }
 }

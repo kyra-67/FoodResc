@@ -36,7 +36,9 @@ object DummyData {
     val users = mutableListOf(
         User("Aisyah", "community@foodresc.com", "0123456789", "123456", "community"),
         User("Ali", "volunteer@foodresc.com", "0198765432", "123456", "volunteer"),
-        User("Siti", "siti@foodresc.com", "0134567890", "123456", "community")
+        User("Siti", "siti@foodresc.com", "0134567890", "123456", "community"),
+        User("Hakim", "hakim@foodresc.com", "0112345678", "123456", "community"),
+        User("Farah", "farah@foodresc.com", "0176543210", "123456", "volunteer")
     )
 
     val categories = listOf("Meals", "Bakery", "Fruits", "Vegetables", "Drinks")
@@ -60,6 +62,24 @@ object DummyData {
             R.drawable.logo_foodresc, "community@foodresc.com", "collected"),
         Food(6, "Chicken Rice", "Cooked Meal", "4 packs", "Setapak",
             "Restoran Selera, Jalan Usahawan, Setapak", "Today, 8:00 PM",
+            R.drawable.logo_foodresc, "siti@foodresc.com", "available"),
+        Food(7, "Fresh Spinach", "Vegetables", "2 kg", "Cheras",
+            "No. 3, Jalan Cheras Hartamas, Cheras", "Tomorrow, 7:00 PM",
+            R.drawable.logo_foodresc, "hakim@foodresc.com", "available"),
+        Food(8, "Orange Juice", "Drinks", "12 bottles", "Wangsa Maju",
+            "Kedai Runcit Maju, Jalan 2/27A, Wangsa Maju", "Tomorrow, 12:00 PM",
+            R.drawable.logo_foodresc, "hakim@foodresc.com", "available"),
+        Food(9, "Curry Puffs", "Bakery", "20 pieces", "Ampang",
+            "Gerai Karipap Mak Jah, Jalan Merdeka, Ampang", "Today, 10:00 PM",
+            R.drawable.logo_foodresc, "hakim@foodresc.com", "available"),
+        Food(10, "Watermelon Slices", "Fruits", "2 boxes", "Cheras",
+            "No. 18, Jalan Cheras Perdana, Cheras", "Today, 9:00 PM",
+            R.drawable.logo_foodresc, "community@foodresc.com", "reserved"),
+        Food(11, "Mee Goreng", "Meals", "6 packs", "Gombak",
+            "Restoran Selera Gombak, Jalan Gombak", "Today, 7:30 PM",
+            R.drawable.logo_foodresc, "siti@foodresc.com", "reserved"),
+        Food(12, "Fresh Tomatoes", "Vegetables", "1.5 kg", "Wangsa Maju",
+            "No. 22, Jalan 4/27A, Wangsa Maju", "Tomorrow, 4:00 PM",
             R.drawable.logo_foodresc, "siti@foodresc.com", "available")
     )
 
