@@ -12,4 +12,5 @@
     <color name="status_accepted">#FF3B82F6</color>
     <color name="status_picked_up">#FF8B5CF6</color>
     <color name="status_delivered">#FF22A35A</color>
+    <color name="lime_light">#FFDDF5B8</color>
 </resources>
