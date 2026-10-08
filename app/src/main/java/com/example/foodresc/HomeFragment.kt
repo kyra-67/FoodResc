@@ -28,6 +28,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             startActivity(Intent(requireContext(), DonateFoodActivity::class.java))
         }
 
+        val main = activity as? MainActivity
+
+        view.findViewById<View>(R.id.cardSearch).setOnClickListener { main?.openBrowse() }
+        view.findViewById<MaterialButton>(R.id.btnFindFood).setOnClickListener { main?.openBrowse() }
+        view.findViewById<TextView>(R.id.tvViewAll).setOnClickListener { main?.openBrowse() }
+
+        // Setiap kategori buka Browse dengan kategori tu dipilih
+        val categoryViews = mapOf(
+            R.id.catMeals to "Meals",
+            R.id.catBakery to "Bakery",
+            R.id.catFruits to "Fruits",
+            R.id.catVegetables to "Vegetables",
+            R.id.catDrinks to "Drinks"
+        )
+        for ((id, category) in categoryViews) {
+            view.findViewById<View>(id).setOnClickListener { main?.openBrowse(category) }
+        }
+
         sectionActive = view.findViewById(R.id.sectionActive)
         tvNoFood = view.findViewById(R.id.tvNoFood)
         rvAvailable = view.findViewById(R.id.rvAvailable)

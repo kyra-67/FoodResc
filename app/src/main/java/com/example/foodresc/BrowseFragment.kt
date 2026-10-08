@@ -29,6 +29,11 @@ class BrowseFragment : Fragment(R.layout.fragment_browse) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Ambil kategori yang dititip dari Home (kalau ada)
+        val mainActivity = activity as? MainActivity
+        mainActivity?.pendingCategory?.let { selectedCategory = it }
+        mainActivity?.pendingCategory = null
+
         val etSearch = view.findViewById<TextInputEditText>(R.id.etSearch)
         val chipGroup = view.findViewById<ChipGroup>(R.id.chipGroupCategory)
         val actvArea = view.findViewById<AutoCompleteTextView>(R.id.actvArea)
