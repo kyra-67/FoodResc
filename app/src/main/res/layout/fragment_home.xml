@@ -12,4 +12,17 @@
         android:textColor="@color/text_dark"
         android:textSize="24sp" />
 
+    <com.google.android.material.button.MaterialButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/btnDonate"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:text="+ Donate Food"
+        android:textColor="@color/text_dark"
+        android:textStyle="bold"
+        app:backgroundTint="@color/green_lime"
+        app:cornerRadius="16dp" />
+
 </FrameLayout>
